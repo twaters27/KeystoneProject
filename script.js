@@ -4,6 +4,17 @@ const goToMake = document.getElementById('goToMake');
 const goToLogin = document.getElementById("goToLogin");
 const gpaCalc = document.getElementById('calculator');
 const classesList = document.getElementById('classesContainer');
+const gpaResults = document.getElementById('gpaResults');
+const selectGPA = document.getElementById('selectGPA');
+const selectWest = document.getElementById('selectWest');
+const calcButton = document.getElementById('calcButton');
+const chessButton = document.getElementById('chessButton');
+const chessScreen = document.getElementById('chessScreen');
+const buttonGoSelect = document.getElementById('buttonGoToSelect');
+const resetClasses = document.getElementById("removeClasses");
+
+
+
 
  
 
@@ -19,10 +30,17 @@ function login() {
        
         loginContainer.style.display = 'none';
         accountContainer.style.display = "none";
-        gpaCalc.style.display = "inline-block";
-        classesList.style.display ="block";
+        selectWest.style.display = 'block';
+        selectGPA.style.display = 'block';
+        
+
+        
+
+
+        
         
     } else {
+        alert("Incorrect Password or Username, Please try again.")
         
         
     }
@@ -60,6 +78,33 @@ goToMake.addEventListener("click", function(){
 goToLogin.addEventListener("click", function(){
     accountContainer.style.display = "none";
     loginContainer.style.display = "block";
+
+
+})
+calcButton.addEventListener("click", function(){
+    gpaCalc.style.display = 'block';
+    selectGPA.style.display = 'none';
+    selectWest.style.display = 'none';
+    classesList.style.display = 'block';
+    gpaResults.style.display = 'block';
+    buttonGoSelect.style.display = 'block';
+
+
+})
+chessButton.addEventListener('click', function(){
+    window.open('https://twaters27.github.io/ChessJS/');
+    
+
+
+})
+buttonGoSelect.addEventListener('click', function(){
+    selectGPA.style.display = 'block'
+    selectWest.style.display = 'block';
+    
+    gpaResults.style.display = 'none';
+    gpaCalc.style.display = 'none';
+    classesList.style.display = 'none';
+    buttonGoSelect.style.display = 'none';
 
 
 })
@@ -126,13 +171,13 @@ let classes = [];
 
     
     function displayClasses() {
-        const classesListElement = document.getElementById('classesList');
-        classesListElement.innerHTML = '';
+        const classesList = document.getElementById('classesList');
+        classesList.innerHTML = ' ';
   
         classes.forEach(c => {
           const listItem = document.createElement('li');
           listItem.innerHTML = `<strong>${c.className}</strong> - Grade: ${c.grade}, Weight: ${getWeightLabel(c.weight)}`;
-          classesListElement.appendChild(listItem);
+          classesList.appendChild(listItem);
         });
       }
       
@@ -146,4 +191,8 @@ let classes = [];
             return 'Normal';
         }
       }
-   
+      // resetClasses.addEventListener('click', function(){
+      //   document.getElementById('classesList').remove();
+      // })
+
+
