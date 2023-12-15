@@ -194,5 +194,3 @@ let classes = [];
       // resetClasses.addEventListener('click', function(){
       //   document.getElementById('classesList').remove();
       // })
-
-
