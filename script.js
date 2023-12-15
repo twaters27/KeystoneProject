@@ -183,9 +183,9 @@ let classes = [];
       
     function getWeightLabel(weight) {
         switch (weight) {
-          case 1.1:
+          case 1.25:
             return 'Honors';
-          case 1.2:
+          case 1.5:
             return 'AP';
           default:
             return 'Normal';
