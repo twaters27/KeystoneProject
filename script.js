@@ -168,3 +168,30 @@ function getWeightLabel(weight) {
 // resetClasses.addEventListener('click', function(){
 //   document.getElementById('classesList').remove();
 // })
+
+function displayClasses() {
+  const classesList = document.getElementById("classesList");
+  classesList.innerHTML = " ";
+
+  classes.forEach((c) => {
+    const listItem = document.createElement("li");
+    listItem.innerHTML = `<strong>${c.className}</strong> - Grade: ${
+      c.grade
+    }, Weight: ${getWeightLabel(c.weight)}`;
+    classesList.appendChild(listItem);
+  });
+}
+
+function getWeightLabel(weight) {
+  switch (weight) {
+    case 1.25:
+      return "Honors";
+    case 1.5:
+      return "AP";
+    default:
+      return "Normal";
+  }
+}
+// resetClasses.addEventListener('click', function(){
+//   document.getElementById('classesList').remove();
+// })

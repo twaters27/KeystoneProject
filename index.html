@@ -1,4 +1,4 @@
-<!-- GPA Calculator created with help from Jayden and his gf-->
+
 <!-- Rest of code done by Trevor Waters -->
 
 <!DOCTYPE html>
@@ -96,6 +96,38 @@
       </button>
 
       <button class="gpaButtons" onclick="calculateGPA()">Calculate GPA</button>
+    </h2>
+    
+    
+
+ </div>   
+ 
+ 
+  <div id="calculator" style = "display:none;">
+    <h2 style="font-size:2em;">GPA Calculator</h2>
+
+    <label for="className">Class Name:</label>
+    <input type="text" id="className" placeholder="Enter class name" required>
+
+    <label for="grade">Select Grade:</label>
+    <select id="grade">
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+      <option value="D">D</option>
+      <option value="F">F</option>
+    </select>
+
+    <label for="weight">Class Weight:</label>
+    <select id="weight">
+      <option value="1">Normal</option>
+      <option value="1.25">Honors</option>
+      <option value="1.5">AP</option>
+    </select>
+
+    <button class="gpaButtons" onclick="addClass(); displayClasses()">Add Class</button>
+
+    <button class="gpaButtons" onclick="calculateGPA()">Calculate GPA</button>
     </div>
 
     <!-- <div id="result"></div>
