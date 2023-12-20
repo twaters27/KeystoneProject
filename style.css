@@ -1,0 +1,90 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url(https://codemyui.com/wp-content/uploads/2016/11/pure-css-snow-animation.gif);
+  background-color: darkgray;
+}
+.chessBoard {
+  width: 70vw;
+  height: 70vw;
+  margin: 0 auto;
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.square {
+  width: 12.5%;
+  height: 12.5%;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.white {
+  background-color: white;
+}
+.black {
+  background-color: #b01b2e;
+}
+.coordinate {
+  height: auto;
+  display: flex;
+  bottom: 4%;
+  left: 4%;
+  position: absolute;
+  font-size: 45px;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.rank {
+  top: 4%;
+  right: 4%;
+  left: auto;
+}
+.whiteText {
+  color: white;
+}
+.blackText {
+  color: #b01b2e;
+}
+.piece {
+  width: 100%;
+  z-index: 1;
+  cursor: pointer;
+}
+.piece img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+
+#alert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(0, 176, 67);
+  width: 44vw;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  font-size: xxx-large;
+  font-weight: bold;
+  z-index: 1000;
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .chessBoard {
+    width: 1600px;
+    height: 1600px;
+  }
+}
+@media (max-width: 600px) {
+  .coordinate {
+    font-size: 8px;
+  }
+}

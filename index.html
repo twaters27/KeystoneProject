@@ -1,122 +1,116 @@
 <!-- GPA Calculator created with help from Jayden and his gf-->
 <!-- Rest of code done by Trevor Waters -->
 
-
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="stylesheet.css">
-</head>
-<body>
-    
-<!-- Login Container -->
-<div class="container" id="login-container">
-    <h2>Welcome Back!</h2>
-    <form id="login-form">
-        <input type="text" id="username" placeholder="Username" required>
-        <input type="password" id="password" placeholder="Password" required>
+    <link rel="stylesheet" href="stylesheet.css" />
+  </head>
+  <body>
+    <!-- Login Container -->
+    <div class="container" id="login-container">
+      <h2>Welcome Back!</h2>
+      <form id="login-form">
+        <input type="text" id="username" placeholder="Username" required />
+        <input type="password" id="password" placeholder="Password" required />
         <button class="normal" type="button" onclick="login()">Login</button>
-        <button id ="goToMake" type="button">Make an Account</button>
+        <button id="goToMake" type="button">Make an Account</button>
+      </form>
+    </div>
 
-    </form>
-</div>
+    <!-- Create Account Container -->
+    <div class="container" id="create-account-container" style="display: none">
+      <h2>Create Account</h2>
+      <form id="create-account-form">
+        <input type="text" id="new-username" placeholder="Username" required />
+        <input
+          type="password"
+          id="new-password"
+          placeholder="Password"
+          required
+        />
+        <button class="normal" type="button" onclick="createAccount()">
+          Create Account
+        </button>
+        <button id="goToLogin" type="button">Go to Login</button>
+      </form>
+    </div>
+    <div class="select2" id="selectGPA" style="display: none">
+      <h2>GPA Calculator:</h2>
+      <img src="Screenshot 2023-12-11 155251.png" width="80%" height="50%" />
+      <p>
+        This is a GPA Calculator that you can use to calculate your GPA, it
+        includes settings for different grades, and different weight classes.
+      </p>
+      <button id="calcButton" class="normal" type="button">
+        Go to Calculator
+      </button>
+    </div>
+    <button id="buttonGoToSelect" type="button" style="display: none">
+      Go back to Select Screen
+    </button>
+    <div class="select2" id="selectWest" style="display: none">
+      <h2>Chess Game:</h2>
+      <img src="chessvideo.gif" width="80%" height="50%" />
+      <p style="padding: 10px">
+        This is a Chess Game created using Javascript, there is no AI yet, but
+        you can use it to review games you have played.
+      </p>
+      <button id="chessButton" class="normal" type="button">
+        Go to Chess Game
+      </button>
+    </div>
 
-<!-- Create Account Container -->
-<div class="container" id="create-account-container" style="display: none;">
-    <h2>Create Account</h2>
-    <form id="create-account-form">
-        <input type="text" id="new-username" placeholder="Username" required>
-        <input type="password" id="new-password" placeholder="Password" required>
-        <button class="normal" type="button" onclick="createAccount()">Create Account</button>
-        <button id ="goToLogin" type="button">Go to Login</button>
-    </form>
-</div>
-<div class="select2" id="selectGPA" style="display:none;">
-    <h2>
-        GPA Calculator:
+    <div id="calculator" style="display: none">
+      <h2 style="font-size: 2em">GPA Calculator</h2>
 
-    </h2>
-    <img src="Screenshot 2023-12-11 155251.png" width="80%" height="50%">
-    <p>
-        This is a GPA Calculator that you can use to calculate your GPA, it includes settings for different grades, and different weight classes.
+      <label for="className">Class Name:</label>
+      <input
+        type="text"
+        id="className"
+        placeholder="Enter class name"
+        required
+      />
 
-    </p>
-    <button id="calcButton" class="normal" type="button">Go to Calculator</button>
-    
+      <label for="grade">Select Grade:</label>
+      <select id="grade">
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="F">F</option>
+      </select>
 
-    
-</div>
-<button id="buttonGoToSelect" type="button" style="display:none;">Go back to Select Screen</button>
- <div class="select2" id="selectWest" style ="display:none;">
-    <h2>
-        Chess Game:
+      <label for="weight">Class Weight:</label>
+      <select id="weight">
+        <option value="1">Normal</option>
+        <option value="1.1">Honors</option>
+        <option value="1.2">AP</option>
+      </select>
 
+      <button class="gpaButtons" onclick="addClass(); displayClasses()">
+        Add Class
+      </button>
 
-    </h2>
-    <img src="chessvideo.gif" width="80%" height="50%">
-    <p style="padding:10px;">
-        This is a Chess Game created using Javascript, there is no AI yet, but you can use it to review games you have played.
-    </p>
-    <button id="chessButton" class="normal" type="button">Go to Chess Game</button>
-
- </div>   
- 
- 
-  <div id="calculator" style = "display:none;">
-    <h2 style="font-size:2em;">GPA Calculator</h2>
-
-    <label for="className">Class Name:</label>
-    <input type="text" id="className" placeholder="Enter class name" required>
-
-    <label for="grade">Select Grade:</label>
-    <select id="grade">
-      <option value="A">A</option>
-      <option value="B">B</option>
-      <option value="C">C</option>
-      <option value="D">D</option>
-      <option value="F">F</option>
-    </select>
-
-    <label for="weight">Class Weight:</label>
-    <select id="weight">
-      <option value="1">Normal</option>
-      <option value="1.1">Honors</option>
-      <option value="1.2">AP</option>
-    </select>
-
-    <button class="gpaButtons" onclick="addClass(); displayClasses()">Add Class</button>
-
-    <button class="gpaButtons" onclick="calculateGPA()">Calculate GPA</button>
+      <button class="gpaButtons" onclick="calculateGPA()">Calculate GPA</button>
     </div>
 
     <!-- <div id="result"></div>
   </div> -->
-  
-  <div id="classesContainer" style="display:none;">
-    
-    <h3>Your Classes</h3>
-    <ul id="classesList"></ul>
-  </div>
-  <div id="gpaResults" style="display:none;">
- <h3>GPA Results</h3>
-    <p id="unweightedGPA">Unweighted GPA: </p>
-    <p id="weightedGPA">Weighted GPA: </p>
-  </div>
-  
-  
 
-
-
-
-    
-
-
-
+    <div id="classesContainer" style="display: none">
+      <h3>Your Classes</h3>
+      <ul id="classesList"></ul>
+    </div>
+    <div id="gpaResults" style="display: none">
+      <h3>GPA Results</h3>
+      <p id="unweightedGPA">Unweighted GPA:</p>
+      <p id="weightedGPA">Weighted GPA:</p>
+    </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
